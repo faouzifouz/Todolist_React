@@ -13,11 +13,12 @@ class App extends Component {
   constructor(props) {
     super(props);
 //remettre les occurence todos
+    
     this.state= {
       todos: [],
-      nextId:3,
+      nextId:0,
       // test Firebase
-      loading: false,
+      loading: true,
       // todos: [],
     }
     
@@ -31,6 +32,7 @@ class App extends Component {
     this.setState({
       todos: todos,
       nextId: ++this.state.nextId
+
     })
   }
 
@@ -69,11 +71,13 @@ class App extends Component {
         // parcourir les données et les capturer
         todo.on('value', snapshot => {
             this.setState({
-                listing: snapshot.val()
+                listing: snapshot.val(),
+                loading:false
                 
             })
         })
     }
+    
    
 
 
@@ -85,7 +89,7 @@ class App extends Component {
     <div className="App">
      <div className="todo-wrapper">
        <Header />
-       <div>{loading && <div>Loading ...</div>}
+       <div>{loading && <div>Chargement ...</div>}
        <Todoinput todoText="" addTodo={this.addTodo} todos={todos} />
        </div>
        <ul>
@@ -95,14 +99,11 @@ class App extends Component {
            })
          }
        </ul>
-       {/* firebase */}
        
         
-
-        {/* <Todoinput  todos={todos} /> */}
-      
-       <div>{this.state.listing} </div>
+       <div>{this.state.listing } </div>
      </div>
+     
     </div>
   )
  }
