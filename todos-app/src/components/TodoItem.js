@@ -12,7 +12,7 @@ removeTodo(id){
  render() {
      return (
           <div className='todoWrapper'>
-              <button className='removeTodo' onClick={(e)=> this.removeTodo(this.props.id)}> Supprimer</button>{this.props.todo.text}
+              <button className='removeTodo' onClick={(e)=> this.removeTodo(this.props.id)}> Supprimerrrrrrr</button>{this.props.todo.text}
           </div>
      );
  }
